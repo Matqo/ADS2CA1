@@ -35,7 +35,7 @@ void rot13::decodeSecretFile() {
 	char cchar;
 	ifstream secret;
 	ofstream decodedSecret;
-	secret.open("secret.txt");
+	secret.open("secretk3.txt");
 	decodedSecret.open("decodedSecret.txt");
 	while (secret.get(cchar)) {
 		if ((cchar <= 'z' && cchar >= 'a') || (cchar <= 'Z' && cchar >= 'A')) {
@@ -61,18 +61,33 @@ void rot13::decodeSecretFile() {
 		for (int x = 0; x < 26; x++) {
 		int largestOccurence = orderedVector.back();
 		orderedVector.pop_back();
+		//int currentOccurence = 0;
 		for (auto i = fileAlphabetFrequency.begin(); i != fileAlphabetFrequency.end(); i++) {
 			if (i->second == largestOccurence) {
 				//for (auto n = decodedMap.begin(); n != decodedMap.end(); n++) {
 					//if (n->second != frequencyArray[x]) {
-						largestOccurence = i->second;
-						decodedMap[i->first] = frequencyArray[x];
+				//if (largestOccurence == i->second) {
+				//	largestOccurence = i->second-1;
+				//}
+				//else {
+				//if (currentOccurence != i->second) {
+					largestOccurence = i->second;
+					//currentOccurence = largestOccurence;
+					decodedMap[i->first] = frequencyVector.back();
+
+				//}
+				//else {
+				//	largestOccurence = i->second;
+				//	frequencyVector.pop_back();
+				//	decodedMap[i->first] = frequencyVector.back();
+				//}
+				//}
 					//}
 				//}
 				
 				//cout << " MAP : " << i->first << " IS " << frequencyArray[x] << endl;
 			}
-		}
+		}frequencyVector.pop_back();
 	}
 
 	for (auto i = decodedMap.begin(); i != decodedMap.end(); i++) {
@@ -80,7 +95,7 @@ void rot13::decodeSecretFile() {
 	}
 
 	secret.close();
-	secret.open("secret.txt");
+	secret.open("secretk3.txt");
 	while (secret.get(cchar)) {
 		if ((cchar <= 'z' && cchar >= 'a') || (cchar <= 'Z' && cchar >= 'A')) {
 			

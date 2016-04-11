@@ -53,7 +53,7 @@ public :
 	void decodeSecretFile();
 private:
 	//map <char, int> alphabetFrequencyMap;
-	char frequencyArray[26] = {'e','t','a','o','i','n','s','h','r','d','l','u','c','m','w','f','y','g','p','b','v','k','x','j','q','z'}; // Char array ordered by freq.
+	vector <char> frequencyVector = {'z','q','j','x','k','v','b','p','g','y','f','w','m','c','u','l','d','r','h','s','n','i','o','a','t','e'}; // Char vector ordered by freq.
 	vector <int> orderedVector;
 	map <char, int> fileAlphabetFrequency;
 	map <char, char> decodedMap;
