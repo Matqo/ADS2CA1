@@ -286,7 +286,7 @@ void treeMethods::charToBit() {
 				cout << "CURRENT :: " << nChar << endl;
 				string tempChar = nChar.to_string();
 				tempChar.erase(8 - addition, string::npos);
-				cout << "tchar" << tempChar;
+				//cout << "tchar" << tempChar;
 				deCompressed << tempChar;	
 			}
 			else {

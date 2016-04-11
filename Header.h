@@ -8,6 +8,7 @@
 #include <queue>
 #include <bitset>
 #include <algorithm>
+#include <array>
 using namespace std;
 
 class huffmanNode {
@@ -57,4 +58,26 @@ private:
 	vector <int> orderedVector;
 	map <char, int> fileAlphabetFrequency;
 	map <char, char> decodedMap;
+};
+
+
+typedef array<pair<char, double>, 26> FreqArray;
+
+class VigenereAnalyser{
+public:
+	VigenereAnalyser(const array<double, 26>& targetFreqs);
+	VigenereAnalyser();
+	pair<string, string> analyze(string input);
+	void decypherSecret();
+private:
+	array<double, 26> targets;
+	array<double, 26> sortedTargets;
+	FreqArray freq;
+
+	// Update the freqs array
+	FreqArray& frequency(const string& input);
+
+	double correlation(const string& input);
+
+
 };

@@ -21,6 +21,9 @@ int main() {
 	rot13 r13;
 	r13.performRotation();
 	r13.decodeSecretFile();
+	VigenereAnalyser v1;
+	v1.decypherSecret();
+
 	system("pause");
 	return 0;
 }

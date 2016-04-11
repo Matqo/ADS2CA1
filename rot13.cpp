@@ -31,6 +31,9 @@ void rot13::performRotation() {
 
 }
 
+
+// My implementation of the frequency analysis attack based on assignment in the CA
+// However, upon finishing this I've found out that this requires much more than just an freq. analysis
 void rot13::decodeSecretFile() {
 	char cchar;
 	ifstream secret;
@@ -41,7 +44,7 @@ void rot13::decodeSecretFile() {
 		if ((cchar <= 'z' && cchar >= 'a') || (cchar <= 'Z' && cchar >= 'A')) {
 			if (fileAlphabetFrequency[cchar] != -1) {
 				fileAlphabetFrequency[cchar]++;
-				cout << " LETTER " << cchar << " FREQ " << fileAlphabetFrequency[cchar] << endl;
+				//cout << " LETTER " << cchar << " FREQ " << fileAlphabetFrequency[cchar] << endl;
 			}
 			else {
 				fileAlphabetFrequency[cchar, 0];
